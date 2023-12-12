@@ -25,18 +25,21 @@ export default function TeamPage({ team }: { team: TeamInfo }) {
           </section>
           <section>
             <h1 className="text-3xl font-bold ps-2 pb-2">Members</h1>
-            <table>
-              <thead className="w-full">
-                <th className="w-1/3">Name</th>
-                <th className="w-1/3">Points</th>
-                <th className="w-1/3">Member Since</th>
+            <table className="w-full ps-4">
+              <thead className="w-full pb-2">
+                <tr className="w-full">
+                    <th className="w-1/3 text-left">Name</th>
+                    <th className="w-1/3 text-center">Points</th>
+                    <th className="w-1/3 text-right">Member Since</th>
+
+                </tr>
               </thead>
-              <tbody>
+              <tbody className="w-full">
                 {team.members.map((member) => (
-                  <tr key={member.name}>
-                    <td>{member.name}</td>
-                    <td>{member.points}</td>
-                    <td>{member.since}</td>
+                  <tr key={member.name} className="w-full mb-4">
+                    <td className="w-1/3 text-left">{member.name}</td>
+                    <td className="w-1/3 text-center">{member.points}</td>
+                    <td className="w-1/3 text-right">{member.since}</td>
                   </tr>
                 ))}
               </tbody>

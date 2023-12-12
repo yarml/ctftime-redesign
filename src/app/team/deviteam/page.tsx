@@ -1,4 +1,3 @@
-import { TeamInfo } from "../TeamInfo";
 import TeamPage from "../TeamPage";
 
 export default function WhiteHats() {
@@ -11,17 +10,17 @@ export default function WhiteHats() {
         members: [
           {
             name: "Yarml",
-            since: "Since Jun. 07 2023",
+            since: "Jun. 07 2023",
             points: 1363,
           },
           {
             name: "mka",
-            since: "Since May. 25 2023",
+            since: "May. 25 2023",
             points: 2540,
           },
           {
             name: "AbdelH2O",
-            since: "Since May. 25 2023",
+            since: "May. 25 2023",
             points: 3752,
           },
         ]
