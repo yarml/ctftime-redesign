@@ -101,7 +101,13 @@ function ThirdPartyLogin({
   color: string;
 }) {
   return (
-    <button
+    <Link
+      href={{
+        pathname: "/",
+        query: {
+          username: "yarml",
+        },
+      }}
       className="flex flex-row items-center justify-center m-4 rounded-xl border-2 p-4 px-2 hover:scale-105 transition-transform"
       style={{
         borderColor: color,
@@ -119,6 +125,6 @@ function ThirdPartyLogin({
         }}
       />{" "}
       Login In With {provider}
-    </button>
+    </Link>
   );
 }
