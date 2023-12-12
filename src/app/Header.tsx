@@ -13,7 +13,7 @@ export default function Header() {
   const pathname = usePathname();
   const username = searchParams.get("username");
 
-  const isLoggedIn = username || pathname.includes("profile");
+  const isLoggedIn = username || pathname.includes("profile") || pathname.includes("contact") || pathname.includes("team");
 
   return (
     <nav className="fixed w-screen h-[3.4rem] bg-stone-900 top-0 z-50">

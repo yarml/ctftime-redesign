@@ -25,20 +25,27 @@ export default function Home({
   };
 }) {
   return (
-    <main className="max-w-screen-lg w-full h-full flex items-center justify-between mx-auto px-4 pt-24 pb-12 flex-col gap-10">
+    <main className="max-w-screen-lg w-full h-full flex items-center justify-between mx-auto px-4 pt-16 pb-12 flex-col gap-10">
       {!username ? (
         <></>
       ) : (
         <div className="flex flex-col w-full p-2 items-stretch">
-          <h1 className="text-4xl font-bold pb-2">Welcome Yarml!</h1>
-          <h2 className="ps-2 text-xl font-semibold pb-4">You have a few annoucements...</h2>
+          <h1 className="text-4xl font-extrabold pb-2">Welcome Yarml!</h1>
+          <h2 className="ps-2 text-xl font-semibold pb-4">
+            You have a few annoucements...
+          </h2>
           <Announcement
             title="Membership request"
-            description="AUI WhiteHats will be playing Intent CTF next week. Do you want to join?"
+            description={
+              <>
+                AUI WhiteHats will be playing <label className="italic font-thin text-white">Intent CTF</label> next week. Do
+                you want to join?
+              </>
+            }
           />
         </div>
       )}
-      <h1 className="self-start text-4xl font-bold pb-1">Recent Events</h1>
+      <h1 className="self-start text-4xl font-extrabold pb-1">Recent Events</h1>
       <Article
         title="pingCTF Just Concluded!"
         href="https://ctf.knping.pl/scoreboard"
@@ -118,7 +125,7 @@ function Announcement({
   description,
 }: {
   title: string;
-  description: string;
+  description: string | React.ReactNode;
 }) {
   return (
     <section className="flex flex-row bg-stone-700 p-4 rounded-xl justify-between hover:shadow-xl hover:scale-[102%] transition-all">
@@ -153,25 +160,27 @@ function Article({
 }) {
   return (
     <Link href={href} className="w-full">
-      <article className="w-full flex flex-col bg-stone-700 p-4 pb-8 rounded-md hover:scale-[101%] hover:shadow-xl transition-all">
-        <h1 className="text-5xl pb-1">{title}</h1>
-        <h4 className="text-xs self-start pb-4 mb-2 pt-2">{date}</h4>
-        <Image
-          src={imgUrl}
-          alt="HTB UniCTF Image"
-          width={400}
-          height={200}
-          className="rounded-md w-full mb-16"
-        />
-        {!top3Teams ? (
-          <></>
-        ) : (
-          <section className="flex flex-row justify-center pt-5 mx-auto">
-            <TeamFlag position={2} team={top3Teams[1]}></TeamFlag>
-            <TeamFlag position={1} team={top3Teams[0]}></TeamFlag>
-            <TeamFlag position={3} team={top3Teams[2]}></TeamFlag>
-          </section>
-        )}
+      <article className="w-full flex flex-col p-4 pt-0 pb-8 hover:scale-[101%] hover:shadow-xl transition-all">
+        <h1 className="font-semibold text-5xl pb-4">{title}</h1>
+        <div className="w-full flex flex-col bg-stone-700 rounded-md p-4 pb-8">
+          <h4 className="text-xs self-start pb-4 mb-2 pt-2">{date}</h4>
+          <Image
+            src={imgUrl}
+            alt="HTB UniCTF Image"
+            width={400}
+            height={200}
+            className="rounded-md w-full mb-16"
+          />
+          {!top3Teams ? (
+            <></>
+          ) : (
+            <section className="flex flex-row justify-center pt-5 mx-auto">
+              <TeamFlag position={2} team={top3Teams[1]}></TeamFlag>
+              <TeamFlag position={1} team={top3Teams[0]}></TeamFlag>
+              <TeamFlag position={3} team={top3Teams[2]}></TeamFlag>
+            </section>
+          )}
+        </div>
       </article>
     </Link>
   );

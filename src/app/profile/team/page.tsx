@@ -9,8 +9,8 @@ export default function TeamPage() {
         <section className="flex flex-col w-1/2">
           <h2 className="text-xl font-semibold">Your Current Teams</h2>
           <ul className="flex flex-col gap-2 mt-4 px-2">
-            <TeamRow name="AUI WhiteHats" comment="Since Nov. 30 2023" />
-            <TeamRow name="Deviteam" comment="Since Jun. 07 2023" />
+            <TeamRow dest="/team/whitehats" name="AUI WhiteHats" comment="Since Nov. 30 2023" />
+            <TeamRow dest="/team/deviteam" name="Deviteam" comment="Since Jun. 07 2023" />
           </ul>
           <h2 className="text-xl font-semibold pt-8 pb-2">Join a New Team</h2>
           <form className="flex flex-row ps-1">
@@ -27,10 +27,10 @@ export default function TeamPage() {
         <section className="flex flex-col w-1/2 ps-2">
           <h2 className="text-xl font-semibold">Your Current Teams</h2>
           <ul className="flex flex-col gap-2 mt-4 px-2">
-            <TeamRow name="yarm" comment="Left Oct. 30 2023" />
-            <TeamRow name="zu7al" comment="Left May. 19 2023" />
-            <TeamRow name="wiresec" comment="Left Dec. 23 2022" />
-            <TeamRow name="Insulators" comment="Left Apr. 25 2022" />
+            <TeamRow dest="/team/yarm" name="yarm" comment="Left Oct. 30 2023" />
+            <TeamRow dest="/team/zu7al" name="zu7al" comment="Left May. 19 2023" />
+            <TeamRow dest="/team/wiresec" name="wiresec" comment="Left Dec. 23 2022" />
+            <TeamRow dest="/team/insulators" name="Insulators" comment="Left Apr. 25 2022" />
           </ul>
         </section>
       </div>
@@ -38,9 +38,9 @@ export default function TeamPage() {
   );
 }
 
-function TeamRow({ name, comment }: { name: string; comment: string }) {
+function TeamRow({ name, comment, dest }: { name: string; comment: string; dest: string; }) {
   return (
-    <Link href="#">
+    <Link href={dest}>
       <li className="flex flex-row justify-between hover:text-[#e3000b] transition-colors">
         <label className="text-lg">{name}</label>
         <label>{comment}</label>
